@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 # https://superuser.com/questions/1423486/issue-with-fetching-http-deb-debian-org-debian-dists-jessie-updates-inrelease
 #RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
 
-# Update sources.list
+# Add the Debian archive sources to sources.list
 RUN echo "deb http://archive.debian.org/debian/ jessie main" > /etc/apt/sources.list && \
     echo "deb-src http://archive.debian.org/debian/ jessie main" >> /etc/apt/sources.list && \
     echo "deb http://security.debian.org jessie/updates main" >> /etc/apt/sources.list && \
