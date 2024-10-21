@@ -1,9 +1,9 @@
 FROM resin/raspberrypi3-python:2.7
 
-#RUN cwd=$(pwd)
+RUN cwd=$(pwd)
 
 # Set the working directory
-WORKDIR /usr/src/app
+#WORKDIR /usr/src/app
 
 # https://superuser.com/questions/1423486/issue-with-fetching-http-deb-debian-org-debian-dists-jessie-updates-inrelease
 RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN cd /usr/include/linux && \
     sudo ln -s -f ../libv4l1-videodev.h videodev.h && \
-    #cd $cwd
+    cd $cwd
 
 RUN apt-get install -y --no-install-recommends \
     libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev \
