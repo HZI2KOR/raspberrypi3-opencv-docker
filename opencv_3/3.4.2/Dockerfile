@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # others
     libtbb2 libtbb-dev \
     # cleanup
-    && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get -y autoremove
 

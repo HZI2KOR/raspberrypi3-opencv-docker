@@ -18,12 +18,12 @@ jobs:
           #- 4.0.0
           #- 4.1.0
           #- 4.1.1
-          #- 4.1.2
+          - 4.1.2
           # OpenCV_3 versions
           #- 3.1.0
           #- 3.4.0
           #- 3.4.1
-          - 3.4.2
+          #- 3.4.2
     steps:
     - name: Checkout Code
       uses: actions/checkout@v3
@@ -40,7 +40,7 @@ jobs:
     - name: Build Docker Image for OpenCV ${{ matrix.opencv_version }}
       run: |
         # Change directory to the appropriate OpenCV version folder
-        cd opencv_3/3.4.2/  
+        cd opencv_4/4.1.2/  
         docker build -t my_pi_opencv_img .
 
     - name: Test OpenCV Installation
