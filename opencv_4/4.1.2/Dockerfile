@@ -1,6 +1,6 @@
 FROM resin/raspberrypi3-python:2.7
 
-RUN cwd=$(pwd)
+#RUN cwd=$(pwd)
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN cd /usr/include/linux && \
     sudo ln -s -f ../libv4l1-videodev.h videodev.h && \
-    cd $cwd
+    #cd $cwd
 
 RUN apt-get install -y --no-install-recommends \
     libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev \
