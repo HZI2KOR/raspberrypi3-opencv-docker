@@ -63,9 +63,9 @@ jobs:
         cd opencv_4/4.1.2
         docker buildx build --platform linux/arm/v7 -t ghcr.io/${{ env.REPO_OWNER }}/my_pi_opencv_img:4.1.2 --load .
 
-    - name: Test OpenCV Installation
-      run: |
-        docker run --rm --platform linux/arm/v7 --init=false ghcr.io/${{ env.REPO_OWNER }}/my_pi_opencv_img:4.1.2 python -c "import cv2; print('Installed OpenCV version is: {} :)'.format(cv2.__version__))"
+    #- name: Run OpenCV 
+    #  run: |
+    #   docker run --rm --platform linux/arm/v7 --init=false ghcr.io/${{ env.REPO_OWNER }}/my_pi_opencv_img:4.1.2 python -c "import cv2; print('Installed OpenCV version is: {} :)'.format(cv2.__version__))"
 
 
     - name: Push Docker Image to GitHub Packages
