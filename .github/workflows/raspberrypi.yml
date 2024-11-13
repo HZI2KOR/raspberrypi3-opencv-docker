@@ -19,8 +19,8 @@ jobs:
           # OpenCV_4 versions
           #- 4.0.0
           #- 4.1.0
-          #- 4.1.1
-          - 4.1.2
+          - 4.1.1
+          #- 4.1.2
           # OpenCV_3 versions
           #- 3.1.0
           #- 3.4.0
@@ -60,16 +60,11 @@ jobs:
         username: ${{ secrets.GH_USERNAME }}
         password: ${{ secrets.GH_TOKEN }}
 
-    - name: Build Docker Image for OpenCV 4.1.2
+    - name: Build Docker Image for OpenCV 4.1.1
       run: |
-        cd opencv_4/4.1.2
-        docker buildx build --platform linux/arm/v7 -t ghcr.io/${{ env.REPO_OWNER }}/my_pi_opencv_img:4.1.22 --load .
-
-    #- name: Run OpenCV 
-    #  run: |
-    #   docker run --rm --platform linux/arm/v7 --init=false ghcr.io/${{ env.REPO_OWNER }}/my_pi_opencv_img:4.1.2 python -c "import cv2; print('Installed OpenCV version is: {} :)'.format(cv2.__version__))"
-
+        cd opencv_4/4.1.1
+        docker buildx build --platform linux/arm/v7 -t ghcr.io/${{ env.REPO_OWNER }}/my_pi_opencv_img:4.1.1 --load .
 
     - name: Push Docker Image to GitHub Packages
       run: |
-        docker push ghcr.io/${{ env.REPO_OWNER }}/my_pi_opencv_img:4.1.2
+        docker push ghcr.io/${{ env.REPO_OWNER }}/my_pi_opencv_img:4.1.1
